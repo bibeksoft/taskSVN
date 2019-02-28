@@ -4,7 +4,7 @@ We will Use Scala and Spark
 
 /*FlatMap*/
 final case class Sentence(id: Long, text: String)
-val sentences = Seq(Sentence(0, "hello world"), Sentence(1, "witaj swiecie")).toDS
+val sentences = Seq(Sentence(0, "hello world"), Sentence(1, "bibek")).toDS
 scala> sentences.flatMap(s => s.text.split("\\s+")).show
 
 Copy

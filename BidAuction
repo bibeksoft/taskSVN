@@ -1,4 +1,13 @@
 This file will has data with Bid and Auction detalis in XYZ company.
 We will Use Scala and Spark
 
+
+/*FlatMap*/
+final case class Sentence(id: Long, text: String)
+val sentences = Seq(Sentence(0, "hello world"), Sentence(1, "witaj swiecie")).toDS
+scala> sentences.flatMap(s => s.text.split("\\s+")).show
+
+Copy
+
 Done With Changes
+

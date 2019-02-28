@@ -1,13 +1,55 @@
-This file will has data with Bid and Auction detalis in XYZ company.
-We will Use Scala and Spark
+/*Only Other Specify for MultiPle otion Without enabling EmptyAllowed*/
+
+<html>
+<head>
+<style>
+/*remove the event pointer*/
+td.checkbox{
+pointer-events:none !important;
+}
+button.n-checkbox{
+pointer-events:auto !important;
+}
+.txt1{
+pointer-events:auto !important;
+}
+</style>
+<script>
+$(document).ready(function(){
+/*Appending textbox to MRGrid*/
+$(".MultipleItemsPopupTable tr:last").find("td.checkbox").each(function(){
+$(this).append("<br><input type='text' name='txt' class='txt1'>");
+$(".txt1").hide();
+});
+
+/*Toggling the text box when checkbox checked*/
+$(".MultipleItemsPopupTable tr:last").find("input:checkbox").click(function(){
+$(this).siblings("input[type='text']").toggle();
+$(this).siblings("input[type='text']").css("color","black");
+});
+
+$("#NextBut").removeAttr("onclick");
+$("#NextBut").click(function(){
+var count=0;
+$(".MultipleItemsPopupTable tr:last").find("input.checkbox:checked").each(function(){
+if($(this).siblings("input[type='text']").val().length===0)
+{
+count=1;
+}
+});
+if(count==1)
+{
+nebui.alert("Please enter other specify box below");
+}
+else{
+NextPage(true);
+}
+
+});
 
 
-/*FlatMap*/
-final case class Sentence(id: Long, text: String)
-val sentences = Seq(Sentence(0, "hello world"), Sentence(1, "bibek")).toDS
-scala> sentences.flatMap(s => s.text.split("\\s+")).show
+});
 
-Copy
-
-Done With Changes
-
+</script>
+</head>
+</html>
